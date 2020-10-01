@@ -1,6 +1,6 @@
 import { TodosService } from './todos.service';
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
-import { Controller,Get } from '@nestjs/common';
+import { Controller,Get, Post, Body } from '@nestjs/common';
 import { Todo } from './interfaces/todos.interface';
 
 
@@ -11,5 +11,11 @@ export class TodosController {
     @Get()
     findAll():Todo[]{
         return this.todosService.findAll()
+    }
+
+    @Post()
+    createTodo(@Body() newTodo){
+        console.log('newTodo : ', newTodo);
+        this.todosService.create(newTodo);
     }
 }
