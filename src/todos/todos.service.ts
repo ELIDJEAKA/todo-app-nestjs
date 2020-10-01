@@ -1,26 +1,30 @@
 import { Injectable } from '@nestjs/common';
+import { Todo } from './interfaces/todos.interface';
 
 @Injectable()
 export class TodosService {
-    todos = [
+    todos:Todo[] = [
         {
             id:1,
             title:"Todo App",
-            description:"Create our first todo"
+            description:"Create our first todo",
+            done:false
         },
         {
             id:2,
             title:"Bread",
-            description:"Buy bread"
+            description:"Buy bread",
+            done:true
         },
         {
             id:3,
             title:"Study NodeJS",
-            description:""
+            description:"",
+            done:false
         }
     ];
 
-    findAll():any[]{
+    findAll():Todo[]{
         return this.todos;
     }
 }
