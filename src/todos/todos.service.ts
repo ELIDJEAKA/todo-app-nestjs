@@ -31,4 +31,8 @@ export class TodosService {
     create(todo:Todo){
         this.todos = [...this.todos,todo];
     }
+
+    findOne(id:string){
+       return this.todos.find(todo=>todo.id===Number(id))
+    }
 }
