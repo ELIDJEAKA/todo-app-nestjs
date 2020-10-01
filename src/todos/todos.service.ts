@@ -1,3 +1,4 @@
+import { CreateTodoDto } from './dto/create-todo.dto';
 import { Injectable } from '@nestjs/common';
 import { Todo } from './interfaces/todos.interface';
 
@@ -28,8 +29,8 @@ export class TodosService {
         return this.todos;
     }
 
-    create(todo:Todo){
-        this.todos = [...this.todos,todo];
+    create(todo:CreateTodoDto){
+        this.todos = [...this.todos,todo as Todo];
     }
 
     findOne(id:string){

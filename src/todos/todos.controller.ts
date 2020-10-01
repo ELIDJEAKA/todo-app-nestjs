@@ -1,3 +1,4 @@
+import { CreateTodoDto } from './dto/create-todo.dto';
 import { TodosService } from './todos.service';
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
 import { Controller,Get, Post, Body, Param } from '@nestjs/common';
@@ -21,7 +22,7 @@ export class TodosController {
     }
 
     @Post()
-    createTodo(@Body() newTodo){
+    createTodo(@Body() newTodo:CreateTodoDto){
         console.log('newTodo : ', newTodo);
         this.todosService.create(newTodo);
     }
