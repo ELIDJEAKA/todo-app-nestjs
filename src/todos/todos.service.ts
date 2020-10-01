@@ -2,7 +2,7 @@ import { Injectable } from '@nestjs/common';
 
 @Injectable()
 export class TodosService {
-    const todos = [
+    todos = [
         {
             id:1,
             title:"Todo App",
@@ -18,5 +18,9 @@ export class TodosService {
             title:"Study NodeJS",
             description:""
         }
-    ]
+    ];
+
+    findAll():any[]{
+        return this.todos;
+    }
 }
