@@ -59,4 +59,14 @@ export class TodosService {
         this.todos = [...updatedTodos]
         return {updatedTodo:1,todo:todoToUpdate}
     }
+
+    delete(id:string){
+        const nbOfTodoBeforeDelete = this.todos.length;
+        this.todos = [...this.todos.filter(t=>t.id!== +id)]
+        if (this.todos.length<nbOfTodoBeforeDelete){
+            return {deletedTodo:1,nbTodos:this.todos.length}
+        }else{
+            return {deletedTodo:0,nbTodos:this.todos.length}
+        }
+    }
 }
